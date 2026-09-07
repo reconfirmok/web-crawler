@@ -10,7 +10,7 @@ import (
 func getHeadingFromHTML(html string) (string, error) {
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
 	if err != nil {
-		return "", fmt.Errorf("Error reading doc: %w", err)
+		return "", fmt.Errorf("Error parsing HTML: %w", err)
 	}
 
 	h1 := doc.Find("h1, h2").First().Text()
@@ -20,7 +20,7 @@ func getHeadingFromHTML(html string) (string, error) {
 func getFirstParagraphFromHTML(html string) (string, error) {
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
 	if err != nil {
-		return "", fmt.Errorf("Error reading doc: %w", err)
+		return "", fmt.Errorf("Error parsing HTML: %w", err)
 	}
 
 	main := doc.Find("main")
